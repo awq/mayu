@@ -16,7 +16,7 @@
 keymap2 TsukiTyping : EmacsGlobal
 
 keymap2 TsukiTypingNakaShift : TsukiTyping
- key ~C-~M-*S-~NL-~CL-*SL-~KL-*IL-*IC-*MAX-*MIN-*MMAX-*MMIN-*T-*TS-*TL-*TLS-*TR-*TRS-*K0-*K1-*K2-*K3-~M0-~M1- =
+ key ~C-~M-*S-~NL-~CL-*SL-~KL-*IL-*IC-*MAX-*MIN-*MMAX-*MMIN-~M0-~M1- =
  key q = l a
  key w = l y a
  key e = n e
@@ -53,7 +53,7 @@ keymap2 TsukiTypingNakaShift : TsukiTyping
  key Solidus = Solidus
 
 keymap2 TsukiTypingKusuriShift : TsukiTyping
- key ~C-~M-*S-~NL-~CL-*SL-~KL-IL-*IC-*MAX-*MIN-*MMAX-*MMIN-*T-*TS-*TL-*TLS-*TR-*TRS-*K0-*K1-*K2-*K3-~M0-~M1- =
+ key ~C-~M-*S-~NL-~CL-*SL-~KL-IL-*IC-*MAX-*MIN-*MMAX-*MMIN-~M0-~M1- =
  key q = S-_1
  key w = g o
  key e = z i
@@ -90,7 +90,7 @@ keymap2 TsukiTypingKusuriShift : TsukiTyping
  key Solidus = b e
 
 keymap2 TsukiTyping
- key ~C-~M-*S-~NL-~CL-*SL-~KL-*IL-*IC-*MAX-*MIN-*MMAX-*MMIN-*T-*TS-*TL-*TLS-*TR-*TRS-*K0-*K1-*K2-*K3-~M0-~M1- =
+ key ~C-~M-*S-~NL-~CL-*SL-~KL-*IL-*IC-*MAX-*MIN-*MMAX-*MMIN-~M0-~M1- =
  key q = r i
  key w = k o
  key e = s i
