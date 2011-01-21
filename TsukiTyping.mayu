@@ -1,0 +1,141 @@
+# 月配列 U8版(http://yellow.ribbon.to/~ujiro/)を一部改造。
+# (No Shift)
+# りこしてょ つんいかのも
+#  は☆★とた くう★☆きち
+#   すをになさ っる、。へ
+# (★)
+# ぁゃねらめ ぬむみえぇぉ
+#  ぃよけあれ まおほそ；：
+#   ぅやせゅゆ ひわふろ／
+# 
+# (☆)
+# ！ごじで＿ づぴぽが？＠
+#  ばぱげどだ ぐヴぼぞぎぢ
+#   ず＿ぜ＿ざ びぷぶぺべ
+
+keymap2 TsukiTyping : EmacsGlobal
+
+keymap2 TsukiTypingNakaShift : TsukiTyping
+ key ~C-~M-*S-~NL-~CL-*SL-~KL-*IL-*IC-*MAX-*MIN-*MMAX-*MMIN-*T-*TS-*TL-*TLS-*TR-*TRS-*K0-*K1-*K2-*K3-~M0-~M1- =
+ key q = l a
+ key w = l y a
+ key e = n e
+ key r = r a
+ key t = m e
+ key y = n u
+ key u = m u
+ key i = m i
+ key o = e
+ key p = l e
+ key CommercialAt = l o
+
+ key a = l i
+ key s = y o
+ key d = k e
+ key f = a
+ key g = r e
+ key h = m a
+ key j = o
+ key k = h o
+ key l = s o
+ key Semicolon = Semicolon
+ key Colon = Colon
+
+ key z = l u
+ key x = y a
+ key c = s e
+ key v = l y u
+ key b = y u
+ key n = h i
+ key m = w a
+ key Comma = h u
+ key FullStop = r o
+ key Solidus = Solidus
+
+keymap2 TsukiTypingKusuriShift : TsukiTyping
+ key ~C-~M-*S-~NL-~CL-*SL-~KL-IL-*IC-*MAX-*MIN-*MMAX-*MMIN-*T-*TS-*TL-*TLS-*TR-*TRS-*K0-*K1-*K2-*K3-~M0-~M1- =
+ key q = S-_1
+ key w = g o
+ key e = z i
+ key r = d e
+ key t = w
+ key y = d u
+ key u = p i
+ key i = p o
+ key o = g a
+ key p = S-Solidus
+ key CommercialAt = CommercialAt
+
+ key a = b a
+ key s = p a
+ key d = g e
+ key f = d o
+ key g = d a
+ key h = g u
+ key j = v u
+ key k = b o
+ key l = z o
+ key Semicolon = g i
+ key Colon = d i
+
+ key z = z u
+ key x = 
+ key c = z e
+ key v = 
+ key b = z a
+ key n = b i
+ key m = p u
+ key Comma = b u
+ key FullStop = p e
+ key Solidus = b e
+
+keymap2 TsukiTyping
+ key ~C-~M-*S-~NL-~CL-*SL-~KL-*IL-*IC-*MAX-*MIN-*MMAX-*MMIN-*T-*TS-*TL-*TLS-*TR-*TRS-*K0-*K1-*K2-*K3-~M0-~M1- =
+ key q = r i
+ key w = k o
+ key e = s i
+ key r = t e
+ key t = l y o
+ key y = t u
+ key u = n n
+ key i = i
+ key o = k a
+ key p = n o
+ key CommercialAt = m o
+
+ key a = h a
+ key s = &Prefix(TsukiTypingKusuriShift)
+ key d = &Prefix(TsukiTypingNakaShift)
+ key f = t o
+ key g = t a
+ key h = k u
+ key j = u
+ key k = &Prefix(TsukiTypingNakaShift)
+ key l = &Prefix(TsukiTypingKusuriShift)
+ key Semicolon = k i
+ key Colon = t i
+
+ key z = s u
+ key x = w o
+ key c = n i
+ key v = n a
+ key b = s a
+ key n = l t u
+ key m = r u
+ key Comma = Comma
+ key FullStop = FullStop
+ key Solidus = h e
+ 
+
+#window TsukiT /\\\\typing\\.exe:/ : TsukiTyping
+#window Em /exe:/ : TsukiTyping
+
+
+#特定のウインドウだけで有効なモディファイヤキーを使うのができない。たとえば
+#
+# window Hoge /./ : Global
+#  key 無変換 = &Ignore
+#  mod mod2 += !無変換
+#  key !M2-A = P
+#
+#と設定した場合、無変換キーを押しながらAを押すとPが入力されるはずなのにAが入力されてしまう。

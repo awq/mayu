@@ -1,0 +1,13 @@
+if ( App-NekoProject-loaded )
+else
+define App-NekoProject-loaded
+
+window App-NekoProject /^\\w:[^:]*\\\\np21(?:nt)?\\.exe(?:$|:)/ : Global
+
+#右CtrlキーをF11 s nに
+mod ctrl -= !RightControl
+key RightControl = F11 S N
+#ApplicationsキーをAltに
+mod Alt += !Applications
+
+endif

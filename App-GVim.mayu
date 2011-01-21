@@ -1,0 +1,9 @@
+if ( App-GVim-loaded )
+else
+define App-GVim-loaded
+
+window App-GVim /^\\w:[^:]*\\\\gvim\\.exe:Vim/ : Global
+
+mod ctrl += !âpêî
+
+endif

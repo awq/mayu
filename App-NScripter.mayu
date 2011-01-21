@@ -1,0 +1,16 @@
+if ( App-NScripter-loaded )
+else
+define App-NScripter-loaded
+
+window App-NScripter /^\\w:[^:]*\\.exe:NScripter(?:$|:)/ : Global
+
+key f F11 M0-HyphenMinus = M-Enter
+key Down j = &MouseWheel ( -120 )
+key Up k = &MouseWheel ( 120 )
+key m = Enter
+key R-m R-RightShift = 
+key v = &WindowMinimize
+key n = n
+key M0-g = Esc
+
+endif

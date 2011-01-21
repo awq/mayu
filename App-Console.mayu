@@ -1,0 +1,61 @@
+if ( App-Console-loaded )
+else
+define App-Console-loaded
+
+keymap2 App-Console-Mark : Global = &Prefix ( App-Console-Mark )
+
+keymap2 App-Console-Mark2 : Global = &Prefix ( App-Console-Mark2 )
+event prefixed  = &HelpMessage ( "App-Console-Mark2", "m-w\tcopy" )
+event before-key-down = &HelpMessage
+key Home  = S-C-Home &Prefix ( App-Console-Mark2 ) # 文2頭
+key End  = S-C-End &Prefix ( App-Console-Mark2 ) # 文末
+key M0-A  = S-Home &Prefix ( App-Console-Mark2 ) # 行頭
+key M0-B  = S-Left &Prefix ( App-Console-Mark2 ) # ←
+key M1-B  = S-C-Left &Prefix ( App-Console-Mark2 ) # ←(単語)
+key M0-E  = S-End  &Prefix ( App-Console-Mark2 ) # 行末
+key M0-F  = S-Right &Prefix ( App-Console-Mark2 ) # →
+key M1-F  = S-C-Right &Prefix ( App-Console-Mark2 ) # →(単語)
+key M0-G  = $EmacsMark/cancel &Undefined  # キャンセル
+key M0-N  = S-Down &Prefix ( App-Console-Mark2 ) # ↓
+key M0-P  = S-Up  &Prefix ( App-Console-Mark2 ) # ↑
+if ( !ZXCV ) key M0-V = S-Next &Prefix ( App-Console-Mark2 ) # 次頁
+key M1-V  = S-Prior &Prefix ( App-Console-Mark2 ) # 前頁
+key M1-W  = Enter   # COPY
+key S-M1-Comma  = S-C-Home &Prefix ( App-Console-Mark2 ) # 文頭
+key S-M1-Period  = S-C-End &Prefix ( App-Console-Mark2 ) # 文末
+key Left  = S-Left &Prefix ( App-Console-Mark2 ) # ←
+key Up   = S-Up  &Prefix ( App-Console-Mark2 ) # ↑
+key Right  = S-Right &Prefix ( App-Console-Mark2 ) # →
+key Down  = S-Down &Prefix ( App-Console-Mark2 ) # ↓
+key ~R-M0-Space = &Prefix ( App-Console-Mark )
+
+keymap2 App-Console-Mark
+event prefixed  = &HelpMessage ( "App-Console-Mark", "copy: move to start position" )
+event before-key-down = &HelpMessage
+key Home  = C-Home &Prefix ( App-Console-Mark ) # 文頭
+key End  = C-End &Prefix ( App-Console-Mark ) # 文末
+key M0-A  = Home &Prefix ( App-Console-Mark ) # 行頭
+key M0-B  = Left &Prefix ( App-Console-Mark ) # ←
+key M1-B  = C-Left &Prefix ( App-Console-Mark ) # ←(単語)
+key M0-E  = End  &Prefix ( App-Console-Mark ) # 行末
+key M0-F  = Right &Prefix ( App-Console-Mark ) # →
+key M1-F  = C-Right &Prefix ( App-Console-Mark ) # →(単語)
+key M0-G  = $EmacsMark/cancel &Undefined  # キャンセル
+key M0-N  = Down &Prefix ( App-Console-Mark ) # ↓
+key M0-P  = Up  &Prefix ( App-Console-Mark ) # ↑
+if ( !ZXCV ) key M0-V = Next &Prefix ( App-Console-Mark ) # 次頁
+key M1-V  = Prior &Prefix ( App-Console-Mark ) # 前頁
+key S-M1-Comma  = C-Home &Prefix ( App-Console-Mark ) # 文頭
+key S-M1-Period  = C-End &Prefix ( App-Console-Mark ) # 文末
+key Left  = Left &Prefix ( App-Console-Mark ) # ←
+key Up   = Up  &Prefix ( App-Console-Mark ) # ↑
+key Right  = Right &Prefix ( App-Console-Mark ) # →
+key Down  = Down &Prefix ( App-Console-Mark ) # ↓
+key ~R-M0-Space = &Prefix ( App-Console-Mark2 )
+
+window App-Console /^ConsoleWindowClass$/ : Global
+
+key M0-Y = M-Space E P
+key M0-Space = M-Space E K &Prefix ( App-Console-Mark )
+
+endif

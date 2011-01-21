@@ -1,0 +1,107 @@
+keyseq $WindowClose = A-F4
+
+window Global-IC //
+
+#IMEが入力中のときにM0-J～M0～SemicolonをF7～F10に
+key IC-M0-U = F6
+key IC-M0-J = F7 
+key IC-M0-K = F8
+key IC-M0-L = F9
+key IC-M0-Semicolon = F10
+
+keymap2 Global-WindowHandler : Global = &Prefix(Global-WindowHandler)
+
+event prefixed  = &HelpMessage("Global-WindowHandler", "g\tcancel\nnpbf\tyose\nv\tsaidai\nc\tsaishou\nx\twindowlower/raise\nz\tmovevisibly")
+key *M0-A= &WindowClingToLeft &Prefix(Global-WindowHandler) #左に寄せる
+key *M0-E= &WindowClingToRight &Prefix(Global-WindowHandler) #右に寄せる
+key M1-A= &WindowClingToTop &Prefix(Global-WindowHandler) #上に寄せる
+key M1-E= &WindowClingToBottom &Prefix(Global-WindowHandler) #下に寄せる
+key *M0-P= &WindowMove(0, -64) &Prefix(Global-WindowHandler) #上に寄せる
+key *M0-N= &WindowMove(0, 64) &Prefix(Global-WindowHandler) #下に寄せる
+key *M0-B= &WindowMove(-64, 0) &Prefix(Global-WindowHandler) #左に寄せる
+key *M0-F= &WindowMove(64,0) &Prefix(Global-WindowHandler) #右に寄せる
+key *M0-V= &WindowMaximize &Prefix(Global-WindowHandler) #最大化
+key *M0-C= &WindowMinimize &HelpMessage #最小化
+key *M0-X= &WindowLower &Prefix(Global-WindowHandler) #一番下へ
+key *M0-R-X= &WindowRaise &Prefix(Global-WindowHandler) #リピードで一番上へ
+key *M0-Z= &WindowMoveVisibly &Prefix(Global-WindowHandler) #見える位置へ移動
+key *M0-G *M0-M *M0-Space *M0-ひらがな = &HelpMessage
+#key *S-M0-Enter = *S-M-Tab &Prefix(Global-WindowHandler)
+
+keymap2 Global-MShift  = M-Pause
+event prefixed = *S-M-Tab
+mod meta = !英数
+key *S-M-Enter = &Prefix(Global-MShift)
+
+keymap2 Global-ATOKd : Global = &KeymapParent &Prefix(Global-ATOKd)
+
+#英数キーをmod0(C-)に
+mod mod0 += !英数
+#Tabキーをmod1(M-)に
+mod mod1 += !Tab
+event prefixed  = &HelpMessage("ATOK Direct with Perl", "input code and hit M0-Colon or Enter")
+key *IC-*S-M0-Colon *IC-M0-M *IC-Enter = ひらがな &HelpMessage *S-C-Insert
+key *IC-M0-ReverseSolidus = ひらがな &Prefix(Global-ATOKd)
+key *IC-Esc *IC-M0-G *IC-M0-Solidus = Esc &HelpMessage ひらがな $ToggleIME
+
+keymap Global
+
+#英数キーをmod0(C-)に
+mod mod0 += !英数
+#Tabキーをmod1(M-)に
+mod mod1 += !Tab
+#右ShiftキーをTabに
+mod shift -= !RightShift
+key *RightShift = *Enter
+key *Enter = *Tab
+
+key *S-M0-Enter = &Prefix(Global-MShift)
+
+#key ~IC-*S-M0-Colon = &SetImeStatus(on) A-ひらがな &Prefix(Global-ATOKd)
+key *S-IC-M0-Colon = *S-C-Insert
+key *S-M0-_1 = *S-F1
+key *S-M0-_2 = *S-F2
+key *S-M0-_3 = *S-F3
+key *S-M0-_4 = *S-F4
+key *S-M0-_5 = *S-F5
+key *S-M0-_6 = *S-F6
+key *S-M0-_7 = *S-F7
+key *S-M0-_8 = *S-F8
+key *S-M0-_9 = *S-F9
+key *S-M0-_0 = *S-F10
+key *S-M0-HyphenMinus = *S-F11
+key *S-M0-CircumflexAccent = *S-*S-F12
+
+#ウインドウの移動
+#key *M0-ひらがな = &Prefix(Global-WindowHandler)
+
+#デフォルトでは、左側のキーには ~C-~M-~S-*NL-*CL-*SL-*KL-*IL-~IC-*MAX-*MIN-*MMAX-*MMIN-*T-*TS- が指定されている
+#IL-はIMEがonになっていることを表す
+#IC-はIMEで変換中であることを表す 
+#D-とU-はそれぞれキーを押すことと離すことに対応
+key *無変換 *変換 = 
+key D-*変換 D-*無変換 = &SetImeStatus(off)
+key R-*変換 R-*無変換 = 
+key U-*変換 U-*無変換 = &SetImeStatus(on)
+
+# key *RightShift = *↑
+# key *↑ = *Tab
+#半角とEscの入れ替え
+#key *Esc = *半角/全角
+#key *半角/全角 = *Esc
+#(M0|M1)-下\を半角/全角キーに
+key M0-ReverseSolidus M1-ReverseSolidus = $ToggleIME
+key IC-M0-ReverseSolidus IC-M1-ReverseSolidus = F10 Enter $ToggleIME
+#M0-MをEnterに
+key *M1-*IC-*S-M0-M = *S-Enter
+#M0-HをBackSpaceに
+key *IC-M0-H = BackSpace
+key M0-M1-T = &WindowToggleTopMost
+#PauseをCapsLockに
+key Pause = $CapsLock
+key M0-_7  = C-F7 #単語登録
+#key M0-S-FullStop = M-Tab
+#key M0-S-Comma = M-S-Tab
+
+keymap KeymapDefault = &Default
+

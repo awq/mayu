@@ -1,0 +1,16 @@
+if ( App-Explorer-loaded )
+else
+define App-Explorer-loaded
+
+
+keymap2 App-Explorer-Cx : EmacsC-X
+
+event prefixed  = &HelpMessage ( "Explorer C-x-", "e\topenmayufolder\nu\tundo\ns\tsave\na\tsaveas\nf\tfileopen\nc\tclose\nr\treloadmayu\nh\tselectall\nt\ttoggletsuki" )
+event before-key-down = &HelpMessage
+key *F = A-D # ŠJ‚­(F)...
+
+window App-explorer /^\\w:[^:]*\\\\(?:IEXPLORE\\.EXE:IEFrame|Explorer\\.EXE:CabinetWClass)(?:$|:)/ : Global
+
+key M0-X = &Prefix ( App-Explorer-Cx )
+
+endif

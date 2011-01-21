@@ -1,0 +1,19 @@
+if ( App-Firefox-loaded )
+else
+define App-Firefox-loaded
+
+keymap2 App-Firefox-Cx : EmacsC-X
+
+event prefixed  = &HelpMessage ( "Firefox C-x-", "e\topenmayufolder\nu\tundo\ns\tsave\na\tsaveas\nf\tfileopen\nc\tclose\nr\treloadmayu\nh\tselectall\nt\ttoggletsuki" )
+event before-key-down = &HelpMessage
+key *F = M-D # 開く(F)...
+key *C = C-W # 閉じる(C)
+
+window App-Firefox /^\\w:[^:]*\\\\firefox\\.exe(?:$|:)/ : Global
+
+key M0-M1-B = C-B #M0-S-B:ブックマークに登録
+key M0-X = &Prefix ( App-Firefox-Cx )
+key S-M1-Comma  = C-S-Tab  # 前のタブ
+key S-M1-Period  = C-Tab   # 後のタブ
+
+endif

@@ -1,0 +1,20 @@
+#if ( App-Xyzzy-loaded )
+#else
+#define App-Xyzzy-loaded
+#
+#include "App-Emacs.mayu" # < Global
+#
+#window App-Xyzzy /^\\w:[^:]*\\\\xyzzy\\.exe(?:$|:)/ : App-Emacs
+#
+##IMEが入力中のとき
+#key C-ReverseSolidus M-ReverseSolidus = $ToggleIME
+#key IC-C-ReverseSolidus IC-M-ReverseSolidus = F10 Enter $ToggleIME
+#key IC-C-U = F6
+#key IC-C-J = F7
+#key IC-C-K = F8
+#key IC-C-L = F9
+#key IC-C-Semicolon = F10
+#key IC-C-G = Esc
+#
+#endif
+#

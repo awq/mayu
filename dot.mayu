@@ -1,0 +1,25 @@
+include "109.mayu" #109キーボード設定
+
+include "Global.mayu"
+
+include "EmacsEditMod.mayu" # from emacsedit.mayu
+
+if( Tsuki )
+ include "TsukiRoman.mayu"
+ include "TsukiTyping.mayu"
+endif
+
+include "App-CMD.mayu" # < App-Console
+include "App-Console.mayu" # < Global
+include "App-Emacs.mayu" # < Global
+include "App-EmEditor.mayu" # < Global
+include "App-Explorer.mayu" # < Global
+include "App-Firefox.mayu" # < Global
+include "App-GVim.mayu" # < Global
+include "App-NekoProject.mayu" # < Global
+include "App-NScripter.mayu" # < Global
+include "App-PuTTY.mayu" # < Global
+include "App-Vimperator.mayu" # < App-Firefox
+
+include "App-Xyzzy.mayu" # < App-Emacs
+include "App-GVim.mayu" # < Global

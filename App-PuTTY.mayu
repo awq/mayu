@@ -1,0 +1,25 @@
+if ( App-PuTTY-loaded )
+else
+define App-PuTTY-loaded
+
+window App-PuTTY /^\\w:[^:]*\\\\putty(?:jp)?\\.exe:PuTTY(?:$|:)/ : Global
+
+mod mod0 -= !英数
+mod mod1 -= !Tab 
+mod ctrl += !英数
+mod meta += !Tab
+#C-下\を半角/全角キーに
+key C-ReverseSolidus= $ToggleIME
+key IC-C-ReverseSolidus= F10 Enter $ToggleIME
+#IMEが入力中のときにM0-J～M0～SemicolonをF7～F10に
+key IC-C-U = F6
+key IC-C-J = F7 #キャレットブラウズモードには使えないようにする
+key IC-C-K = F8
+key IC-C-L = F9
+key IC-C-Semicolon = F10 
+key IC-C-C IC-C-G = ESC
+key IC-C-Colon = 
+key ~IC-*S-C-Colon = &SetImeStatus ( on ) A-ひらがな &Prefix ( Global-ATOKd )
+key C-A-T = &WindowToggleTopMost
+
+endif

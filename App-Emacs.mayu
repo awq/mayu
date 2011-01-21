@@ -1,0 +1,33 @@
+if ( App-Emacs-loaded )
+else
+define App-Emacs-loaded
+
+window App-Emacs /^\\w:[^:]*\\\\(?:emacs|xyzzy)\\.exe(?:$|:)/ : Global
+
+#英数キーをctrl(C-)に
+mod mod0 -= !英数
+mod ctrl += !英数
+#Tabキーをalt(M-)に
+mod mod1 -= !Tab
+mod meta += !Tab
+#その他
+key C-M-t = &WindowToggleTopMost
+key *S-C-Enter = &Prefix(Global-MShift)
+key *S-M-Enter = *S-C-Tab
+#IMEが入力中のとき (NTEmacsかxyzzyのみ正しく動作)
+#key C-ReverseSolidus IC-M-ReverseSolidus = 半角/全角
+key IC-C-ReverseSolidus IC-M-ReverseSolidus = F10 Enter 半角/全角
+key IC-C-U = F6
+key IC-C-J = F7
+key IC-C-K = F8
+key IC-C-L = F9
+key IC-C-Semicolon = F10
+key IC-C-G = Esc
+key IC-C-H = BackSpace
+key IC-C-M = F6
+key IC-C-N = DOWN
+key IC-C-P = UP
+key IC-C-B = LEFT
+key IC-C-F = RIGHT
+key IC-C-M = Enter
+endif

@@ -1,0 +1,118 @@
+# Œ”z—ñ U8”Å(http://yellow.ribbon.to/~ujiro/)‚ğˆê•”‰ü‘¢B
+# (No Shift)
+# ‚è‚±‚µ‚Ä‚å ‚Â‚ñ‚¢‚©‚Ì‚à
+#  ‚Í™š‚Æ‚½ ‚­‚¤š™‚«‚¿
+#   ‚·‚ğ‚É‚È‚³ ‚Á‚éABQ
+# (š)
+# ‚Ÿ‚á‚Ë‚ç‚ß ‚Ê‚Ş‚İ‚¦‚¥‚§
+#  ‚¡‚æ‚¯‚ ‚ê ‚Ü‚¨‚Ù‚»QQ
+#   ‚£‚â‚¹‚ã‚ä ‚Ğ‚í‚Ó‚ë‚Ö
+# 
+# (™)
+# Q‚²‚¶‚ÅQ ‚Ã‚Ò‚Û‚ªQQ
+#  ‚Î‚Ï‚°‚Ç‚¾ ‚®ƒ”‚Ú‚¼‚¬‚À
+#   ‚¸Q‚ºQ‚´ ‚Ñ‚Õ‚Ô‚Ø‚×
+
+keymap2 TsukiKana2 : EmacsGlobal
+
+keymap2 TsukiKanaKDShift : TsukiKana2
+ key *IL-*IC- =
+ key q = S-_3
+ key w = S-_7
+ key e = Comma
+ key r = o
+ key t = Solidus
+ key y = _1
+ key u = RightSquareBracket
+ key i = n
+ key o = _5
+ key p = S-_5
+ key CommercialAt = S-_6
+
+ key a = S-e
+ key s = _9
+ key d = Colon
+ key f = _3
+ key g = SemiColon
+ key h = j
+ key j = _6
+ key k = HyphenMinus
+ key l = c
+ key Semicolon Colon RightSquareBracket = S-Solidus
+
+ key z = S-_4
+ key x = _7
+ key c = p
+ key v = S-_8
+ key b = _8
+ key n = v
+ key m = _0
+ key Comma = _2
+ key FullStop = ReverseSolidus
+ key Solidus = S-CircumflexAccent
+
+keymap2 TsukiKanaLSShift : TsukiKana2
+ key *IL-*IC- =
+ key q t = S-Solidus
+ key w e r = &Keymap(TsukiKana2) CommercialAt
+ key p CommercialAt = S-Solidus
+ key y o = &Keymap(TsukiKana2) CommercialAt
+ key u = v LeftSquareBracket
+ key i = Hyphen LeftSquareBracket
+
+ key a f g = &Keymap(TsukiKana2) CommercialAt
+ key d = &Keymap(TsukiKanaKDShift) CommercialAt
+ key s = f LeftSquareBracket
+ key h j SemiColon Colon = &Keymap(TsukiKana2) CommercialAt
+ key k l = &Keymap(TsukiKanaKDShift) CommercialAt
+
+ key x v = S-Solidus
+ key z b = &Keymap(TsukiKana2) CommercialAt
+ key c = &Keymap(TsukiKanaKDShift) CommercialAt
+ key n Comma Solidus = &Keymap(TsukiKanaKDShift) CommercialAt
+ key m = v LeftSquareBracket
+ key FullStop = CircumflexAccent LeftSquareBracket
+
+keymap2 TsukiKana2
+ key M0-g =
+ key *IL-*IC- =
+ key Hyphen = S-YenSign
+ key q = l
+ key w = b
+ key e = d
+ key r = w
+ key t = S-_9
+ key y = z
+ key u = y
+ key i = e
+ key o = t
+ key p = k
+ key CommercialAt = m
+
+ key a = f
+ key s = &Prefix(TsukiKanaLSShift)
+ key d = &Prefix(TsukiKanaKDShift)
+ key f = s
+ key g = q
+ key h = h
+ key j = _4
+ key k = &Prefix(TsukiKanaKDShift)
+ key l = &Prefix(TsukiKanaLSShift)
+ key Semicolon = g
+ key Colon = a
+ key RightSquareBracket = S-Solidus
+
+ key z = r
+ key x = S-_0
+ key c = i
+ key v = u
+ key b = x
+ key n = S-z
+ key m = FullStop
+ key Comma = S-Comma
+ key FullStop = S-FullStop
+ key Solidus = S-Solidus
+ key ReverseSolidus = S-Solidus
+
+window TWellJK /TWellJK/ : TsukiKana2
+window KayouTyping /\\\\typing\\.exe:Afx/ : TsukiKana2

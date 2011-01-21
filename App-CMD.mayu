@@ -1,0 +1,17 @@
+if ( App-CMD-loaded )
+else
+define App-CMD-loaded
+
+include "App-Console.mayu" # < Global
+
+keymap2 App-CMD-Cx : EmacsC-X
+
+event prefixed  = &HelpMessage ( "CMD C-x-", "e\topenmayufolder\nu\tundo\ns\tsave\na\tsaveas\nf\tfileopen\nc\tclose\nr\treloadmayu\nh\tselectall\nt\ttoggletsuki" )
+event before-key-down = &HelpMessage
+key *C = Esc e x i t Enter # •Â‚¶‚é(C)...
+
+window App-CMD ( /^ConsoleWindowClass$/ && /^(?:\\w:[^:]*\\\\cmd\\.exe(?:$|:)|Command Prompt$)/ ) : App-console
+
+key M0-X = &Prefix ( App-CMD-Cx )
+
+endif

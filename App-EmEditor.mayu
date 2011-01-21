@@ -1,0 +1,21 @@
+if ( App-EmEditor-loaded )
+else
+define App-EmEditor-loaded
+
+keymap2 App-EmEditor-Cx : EmacsC-X
+
+event prefixed  = &HelpMessage ( "EmEditor C-x-", "e\topenmayufolder\nu\tundo\ns\tsave\na\tsaveas\nf\tfileopen\nc\tclose\nr\treloadmayu\nh\tselectall\nt\ttoggletsuki" )
+event before-key-down = &HelpMessage
+key *C = C-W # 閉じる(C)
+
+window App-EmEditor /:EmEditorView$/ : Global
+
+#M0-R:コマンドプロンプトで起動/M0-T:関連付けで起動
+key M0-R = C-S C-R
+key M0-T = C-S C-T
+key M0-X = &Prefix ( App-EmEditor-Cx )
+key M0-Comma  = C-S-Tab  # 前のタブ
+key M0-Period  = C-Tab   # 後のタブ
+key M0-J = C-G #指定行へジャンプ
+
+endif

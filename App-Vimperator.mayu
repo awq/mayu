@@ -1,0 +1,39 @@
+if ( App-Vimperator-loaded )
+else
+define App-Vimperator-loaded
+
+include "App-Firefox.mayu" # < Global
+
+keymap2 App-Vimperator-Cx : App-firefox-cx
+event prefixed  = &HelpMessage ( "Vimperator C-x-", "e\topenmayufolder\nu\tundo\ns\tsave\na\tsaveas\nf\tfileopen\nc\tclose\nr\treloadmayu\nh\tselectall\nt\ttoggletsuki" )
+event before-key-down = &HelpMessage
+key *C = M-F4 # 閉じる(C)
+
+window App-Vimperator ( /^\\w:[^:]*\\\\firefox\\.exe(?:$|:)/ && / - Vimperator:*$/ ) : App-Firefox
+
+key M0-X = &Prefix ( App-Vimperator-Cx )
+key M0-C = Esc
+key M0-S = Slash
+key M0-D = Del
+key M0-V = C-D
+key M1-V = C-U
+key M0-Y = S-Insert
+key M0-Slash = C-V C-Z
+key M0-S-M = C-Enter
+###    #英数キーをctrl(C-)に
+###    mod mod0 -= !英数
+###    mod ctrl += !英数
+###    #IMEが入力中のときにM0-J～M0～SemicolonをF7～F10に
+###    key C-F = C-F
+###    key C-C = Esc
+###    key C-M = Enter
+###    key IC-C-U = F6
+###    key IC-C-J = F7 
+###    key IC-C-K = F8
+###    key IC-C-L = F9
+###    key IC-C-Semicolon = F10
+###    #C-下\を半角/全角キーに
+###    key C-ReverseSolidus = $ToggleIME
+###    key IC-C-ReverseSolidus = F10 Enter $ToggleIME
+
+endif
