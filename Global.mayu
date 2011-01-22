@@ -59,18 +59,18 @@ key *S-M0-Enter = &Prefix(Global-MShift)
 
 #key ~IC-*S-M0-Colon = &SetImeStatus(on) A-ひらがな &Prefix(Global-ATOKd)
 key *S-IC-M0-Colon = *S-C-Insert
-key *S-M0-_1 = *S-F1
-key *S-M0-_2 = *S-F2
-key *S-M0-_3 = *S-F3
-key *S-M0-_4 = *S-F4
-key *S-M0-_5 = *S-F5
-key *S-M0-_6 = *S-F6
-key *S-M0-_7 = *S-F7
-key *S-M0-_8 = *S-F8
-key *S-M0-_9 = *S-F9
-key *S-M0-_0 = *S-F10
-key *S-M0-HyphenMinus = *S-F11
-key *S-M0-CircumflexAccent = *S-*S-F12
+key *C-*S-M0-_1 = *S-F1
+key *C-*S-M0-_2 = *S-F2
+key *C-*S-M0-_3 = *S-F3
+key *C-*S-M0-_4 = *S-F4
+key *C-*S-M0-_5 = *S-F5
+key *C-*S-M0-_6 = *S-F6
+key *C-*S-M0-_7 = *S-F7
+key *C-*S-M0-_8 = *S-F8
+key *C-*S-M0-_9 = *S-F9
+key *C-*S-M0-_0 = *S-F10
+key *C-*S-M0-HyphenMinus = *S-F11
+key *C-*S-M0-CircumflexAccent = *S-*S-F12
 
 #ウインドウの移動
 #key *M0-ひらがな = &Prefix(Global-WindowHandler)
