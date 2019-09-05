@@ -35,8 +35,14 @@ key *S-M-Enter = &Prefix(Global-MShift)
 
 keymap2 Global-ATOKd : Global = &KeymapParent &Prefix(Global-ATOKd)
 
-#英数キーをmod0(C-)に
-mod mod0 += !英数
+#Aの左のキーをmod0(C-)に
+if ( Mac )
+ mod control -= LeftControl
+ mod mod0 += !LeftControl
+ mod control += !英数
+else
+ mod mod0 += !英数 
+endif
 #Tabキーをmod1(M-)に
 mod mod1 += !Tab
 event prefixed  = &HelpMessage("ATOK Direct with Perl", "input code and hit M0-Colon or Enter")
@@ -46,10 +52,17 @@ key *IC-Esc *IC-M0-G *IC-M0-Solidus = Esc &HelpMessage ひらがな $ToggleIME
 
 keymap Global
 
-#英数キーをmod0(C-)に
-mod mod0 += !英数
+#Aの左のキーをmod0(C-)に
+if ( Mac )
+ mod control -= LeftControl
+ mod mod0 += !LeftControl
+ mod control += !英数
+else
+ mod mod0 += !英数 
+endif
 #Tabキーをmod1(M-)に
 mod mod1 += !Tab
+
 #右ShiftキーをTabに
 mod shift -= !RightShift
 key *RightShift = *Enter
@@ -79,10 +92,17 @@ key *C-*S-M0-CircumflexAccent = *C-*S-F12
 #IL-はIMEがonになっていることを表す
 #IC-はIMEで変換中であることを表す 
 #D-とU-はそれぞれキーを押すことと離すことに対応
-key *無変換 *変換 = 
-key D-*変換 D-*無変換 = &SetImeStatus(off)
-key R-*変換 R-*無変換 = 
-key U-*変換 U-*無変換 = &SetImeStatus(on)
+if( Mac )
+ key *無変換 *ひらがな = 
+ key D-*ひらがな D-*無変換 = &SetImeStatus(off)
+ key R-*ひらがな R-*無変換 = 
+ key U-*ひらがな U-*無変換 = &SetImeStatus(on)
+else
+ key *無変換 *変換 = 
+ key D-*変換 D-*無変換 = &SetImeStatus(off)
+ key R-*変換 R-*無変換 = 
+ key U-*変換 U-*無変換 = &SetImeStatus(on)
+endif
 
 # key *RightShift = *↑
 # key *↑ = *Tab
@@ -104,4 +124,3 @@ key M0-_7  = C-F7 #単語登録
 #key M0-S-Comma = M-S-Tab
 
 keymap KeymapDefault = &Default
-
