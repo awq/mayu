@@ -52,14 +52,29 @@ key *IC-Esc *IC-M0-G *IC-M0-Solidus = Esc &HelpMessage ひらがな $ToggleIME
 
 keymap Global
 
-#Aの左のキーをmod0(C-)に
 if ( Mac )
- mod control -= LeftControl
- mod mod0 += !LeftControl
- mod control += !英数
+ #Aの左のキーをmod0(C-)に
+  mod control -= LeftControl
+  mod mod0 += !LeftControl
+ #caps lockキーをControlキーに
+  mod control += 英数
+  key *英数 = *LeftControl
+ #optionキーをWindowsキーに
+  mod alt -= LeftAlt
+  mod windows += !!LeftAlt
+  key W-LeftAlt = LeftWindows
+ #左commandキーをAltキーに
+  mod windows -= LeftWindows
+  mod alt += !!LeftWindows
+  key M-LeftWindows = LeftAlt
+ #右commandキーをアプリケーションキーに
+  mod windows -= RightWindows
+  key RightWindows = Apps
 else
- mod mod0 += !英数 
+ #Aの左のキーをmod0(C-)に
+  mod mod0 += !英数 
 endif
+
 #Tabキーをmod1(M-)に
 mod mod1 += !Tab
 
